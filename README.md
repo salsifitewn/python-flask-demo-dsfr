@@ -82,9 +82,22 @@ for item in Item.query.filter_by(price=500):
 ... 
 ```
 
+## P6 : Models and Databases
+
+
+>Package 
+>Pour créer votre propre package, commencez par créer dans le même dossier que votre programme - un dossier portant le nom de votre package. Dans notre exemple, nous le nommerons " utils ".
+>Dans ce dossier, créons le fichier suivant: __init__.py , cela indique à python qu'il s'agit d'un package . Ce fichier peut être vide, seule sa présence est importante. 
+> <https://python.doctor/page-python-modules-package-module-cours-debutants-informatique-programmation>
+
+__init__.py
+
+beware of cyclic dependancies. change import order at the end if needed
+
 ## Resource
 
 - <http://www.jimshapedcoding.com/courses/Flask%20Full%20Series>
 - <https://www.youtube.com/watch?v=Qr4QMBUPxWo>
 - <https://flask.palletsprojects.com/en/1.1.x/quickstart/>
 - <https://gouvfr.atlassian.net/wiki/spaces/DB/pages/193036295/COMPOSANTS>
+- <https://web.archive.org/web/20150113060057/http://effbot.org/zone/import-confusion.htm> :cyclic import dependancy

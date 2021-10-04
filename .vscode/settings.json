@@ -2,5 +2,29 @@
     "conventionalCommits.scopes": [
         "style",
         "market"
-    ]
+    ],
+    "python.linting.pylintArgs": [
+        "--load-plugins",
+        "pylint_flask_sqlalchemy",
+        "pylint_flask",                
+    ],
+    "sqltools.connections": [
+        {
+            "name": "Container database",
+            "driver": "PostgreSQL",
+            "previewLimit": 50,
+            "server": "localhost",
+            "port": 5432,
+            "database": "postgres",
+            "username": "postgres",
+            "password": "postgres"
+        },
+        {
+            "previewLimit": 50,
+            "driver": "SQLite",
+            "database": "./market.db",
+            "name": "sqlite"
+        }
+    ],
+    "sqltools.useNodeRuntime": true
 }
