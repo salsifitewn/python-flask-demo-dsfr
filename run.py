@@ -1,5 +1,6 @@
 from market import app
+from livereload import Server
 
-# Checks if the run.py file has executed directly and not imported
 if __name__ == '__main__':
-    app.run(debug=True)
+    server = Server(app.wsgi_app)
+    server.serve(host='0.0.0.0')
