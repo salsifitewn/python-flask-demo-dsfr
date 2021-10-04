@@ -59,6 +59,29 @@ Home Page
 
 routing helper `url_for(function_name)`
 
+## P5 : Models and Databases
+
+SQLAlchemy: Data Mapper based ORM
+
+Insert in console
+
+```python
+from market import db
+db.create_all()
+from market import Item
+item1 =Item(name="Iphone 10",price=500,barcode="123456789012",description='desc')
+db.session.add(item1)
+db.session.commit()
+Item.query.all()
+item2 =Item(name="Laptop",price=90,barcode="123985473165")
+db.session.add(item2)
+db.session.commit()
+
+for item in Item.query.filter_by(price=500):
+...     item.name
+... 
+```
+
 ## Resource
 
 - <http://www.jimshapedcoding.com/courses/Flask%20Full%20Series>
