@@ -28,3 +28,9 @@ pip install flask
 flask --version
 pip install python-dotenv
 flask run
+
+## P2
+
+`render_template('home.html')` (default folder: template)
+multiple decorators
+bootstrap inclusion
