@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="fr" data-fr-theme>
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <!-- DSFR CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='assets/dsfr/dist/css/dsfr.min.css') }}" />
+    <link rel="shortcut icon" href="{{ url_for('static', filename='assets/dsfr/dist/favicons/favicon.ico') }}" />
+    <title>{% block title %} {% endblock %}</title>
+  </head>
+  <body>
+    <header role="banner" class="fr-header">
+      <div class="fr-header__body">
+        <div class="fr-container">
+          <div class="fr-header__body-row">
+            <div class="fr-header__brand fr-enlarge-link">
+              <div class="fr-header__brand-top">
+                <div class="fr-header__logo">
+                  <p class="fr-logo">
+                    PYTHON
+                    <br />FLASK
+                  </p>
+                </div>
+              </div>
+              <div class="fr-header__service">
+                <a href="/" title="Accueil">
+                  <p class="fr-header__service-title">Flask Market</p>
+                </a>
+                <p class="fr-header__service-tagline">Site à visée pédagogique</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="fr-container">
+        <nav class="fr-nav" id="header-navigation" role="navigation" aria-label="Menu principal">
+          <ul class="fr-nav__list">
+            <li class="fr-nav__item">
+              <a class="nav-link" href="#"></a>
+              <a class="fr-nav__link" href="{{ url_for('home_page') }}" target="_self" aria-current="page"
+                >Home <span class="sr-only">(current)</span></a
+              >
+            </li>
+            <li class="fr-nav__item fr-mr-auto">
+              <a class="fr-nav__link" href="{{ url_for('market_page') }}" target="_self">Market</a>
+            </li>
+            <li class="fr-nav__item">
+              <a class="fr-nav__link" href="#" target="_self">Login</a>
+            </li>
+            <li class="fr-nav__item">
+              <a class="fr-nav__link" href="#" target="_self">Register</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <div class="main">
+      <div class="fr-container">{% block content %} {% endblock %}</div>
+    </div>
+    <!-- DSFR JavaScript -->
+    <script src="{{ url_for('static', filename='assets/dsfr/dist/js/dsfr.nomodule.min.js') }}"></script>
+  </body>
+</html>

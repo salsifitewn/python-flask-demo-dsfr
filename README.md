@@ -34,3 +34,23 @@ flask run
 `render_template('home.html')` (default folder: template)
 multiple decorators
 bootstrap inclusion
+
+## P3
+
+Introduction to jinja
+
+## P4
+
+layout extends with jinja
+
+```jinja
+{% extends 'base.html' %}
+{% block title %}
+Home Page
+{% endblock %}
+{% block content %}
+<h1>Home Page</h1>
+{% endblock %}
+```
+
+routing helper `url_for(function_name)`
