@@ -26,10 +26,18 @@ Adapted from <https://github.com/jimdevops19/FlaskSeries>
 
 ## CLI
 
+```bash
+# if local env 
+python3 -m venv venv
+source venv/bin/activate
+
 pip install flask
-flask --version
 pip install python-dotenv
 flask run
+pip freeze > requirements.txt
+pip install -r requirements.txt
+
+```
 
 ## Course Content
 
@@ -66,16 +74,21 @@ SQLAlchemy: Data Mapper based ORM
 Insert in console
 
 ```python
+flask shell
 from market import db
 db.create_all()
-from market import Item
+from market.models import Item,User
+user1 = User(username="salsifite",email_address="example@test.com",password_hash="123456789012",budget=900)
+user2 = User(username="henry",email_address="example2@test.com",password_hash="123456789012",budget=900)
 item1 =Item(name="Iphone 10",price=500,barcode="123456789012",description='desc')
 db.session.add(item1)
+ item1.owner = User.query.filter_by(username='jsc').first().id
 db.session.commit()
 Item.query.all()
 item2 =Item(name="Laptop",price=90,barcode="123985473165")
 db.session.add(item2)
 db.session.commit()
+item1.owner = User.query.filter_by(username='salsifite').first().id
 
 for item in Item.query.filter_by(price=500):
 ...     item.name
@@ -83,7 +96,6 @@ for item in Item.query.filter_by(price=500):
 ```
 
 ## P6 : Models and Databases
-
 
 >Package 
 >Pour créer votre propre package, commencez par créer dans le même dossier que votre programme - un dossier portant le nom de votre package. Dans notre exemple, nous le nommerons " utils ".
@@ -94,6 +106,13 @@ __init__.py
 
 beware of cyclic dependancies. change import order at the end if needed
 
+### Migrations
+
+flask db init
+flask db migrate -m 'migration_name'
+flask db upgrade
+
+
 ## Resource
 
 - <http://www.jimshapedcoding.com/courses/Flask%20Full%20Series>
@@ -101,3 +120,4 @@ beware of cyclic dependancies. change import order at the end if needed
 - <https://flask.palletsprojects.com/en/1.1.x/quickstart/>
 - <https://gouvfr.atlassian.net/wiki/spaces/DB/pages/193036295/COMPOSANTS>
 - <https://web.archive.org/web/20150113060057/http://effbot.org/zone/import-confusion.htm> :cyclic import dependancy
+- <https://flask.palletsprojects.com/en/2.0.x/cli/#environment-variables-from-dotenv> : dotenv
