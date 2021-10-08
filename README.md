@@ -33,6 +33,7 @@ source venv/bin/activate
 
 pip install flask
 pip install python-dotenv
+pip install flask-wtf
 flask run
 pip freeze > requirements.txt
 pip install -r requirements.txt
@@ -97,7 +98,7 @@ for item in Item.query.filter_by(price=500):
 
 ## P6 : Models and Databases
 
->Package 
+>Package
 >Pour créer votre propre package, commencez par créer dans le même dossier que votre programme - un dossier portant le nom de votre package. Dans notre exemple, nous le nommerons " utils ".
 >Dans ce dossier, créons le fichier suivant: __init__.py , cela indique à python qu'il s'agit d'un package . Ce fichier peut être vide, seule sa présence est importante. 
 > <https://python.doctor/page-python-modules-package-module-cours-debutants-informatique-programmation>
@@ -112,7 +113,28 @@ flask db init
 flask db migrate -m 'migration_name'
 flask db upgrade
 
+## P7: Flask Forms
 
+
+### generate csrf(Cross-site request forgery)
+
+```bash
+import os
+os.urandom(12).hex()
+```
+
+Copy to .env 'SECRET_KEY'
+
+### Create form class from FlaskForm
+
+<https://flask-wtf.readthedocs.io/en/0.15.x/>
+
+
+HTML counterpart
+            {{ form.csrf_token }}
+
+            {{ form.username.label(class="fr-label")}}
+            {{ form.username(class="fr-input", placeholder="User Name")}}
 ## Resource
 
 - <http://www.jimshapedcoding.com/courses/Flask%20Full%20Series>

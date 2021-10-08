@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Register Page
+{% endblock %}
+
+{% block content %}
+<div class="fr-grid-row">
+    <div class="fr-col">
+        <div class="fr-mx-auto" style="text-align: center;">
+            <img src="https://res.cloudinary.com/jimshapedcoding/image/upload/v1597332609/android-icon-192x192_ove2a7.png"
+                alt="logo" />
+        </div>
+    </div>
+</div>
+<div class="fr-grid-row">
+    <div class="fr-col">
+        <h1 class="fr-mb-3 fr-display-md fr-text-center"  style="text-align: center;">
+            Please Create your Account
+        </h1>
+    </div>
+</div>
+<br>
+<div class="fr-grid-row">
+    <div class="fr-col">
+        <form method="POST" class="form-register">
+
+            {{ form.csrf_token }}
+
+            {{ form.username.label(class="fr-label")}}
+            {{ form.username(class="fr-input", placeholder="User Name")}}
+
+            {{ form.email_address.label(class="fr-label")}}
+            {{ form.email_address(class="fr-input", placeholder="Email Address")}}
+
+            {{ form.password1.label(class="fr-label")}}
+            {{ form.password1(class="fr-input", placeholder="Password")}}
+
+            {{ form.password2.label(class="fr-label")}}
+            {{ form.password2(class="fr-input", placeholder="Confirm password")}}
+
+            {{ form.submit(class="fr-btn fr-btn--lg fr-fi-checkbox-circle-line fr-btn--icon-left fr-mt-1w")}}
+        </form>
+    </div>
+</div>
+{% endblock %}
