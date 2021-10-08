@@ -113,7 +113,7 @@ flask db init
 flask db migrate -m 'migration_name'
 flask db upgrade
 
-## P7: Flask Forms
+## P8: Flask Forms
 
 
 ### generate csrf(Cross-site request forgery)
@@ -129,12 +129,35 @@ Copy to .env 'SECRET_KEY'
 
 <https://flask-wtf.readthedocs.io/en/0.15.x/>
 
+form class
 
-HTML counterpart
-            {{ form.csrf_token }}
+```python
+from flask_wtf import FlaskForm
+from wtforms.fields.core import StringField
+from wtforms.fields.simple import PasswordField, SubmitField
 
-            {{ form.username.label(class="fr-label")}}
-            {{ form.username(class="fr-input", placeholder="User Name")}}
+class RegisterForm(FlaskForm):
+
+    username = StringField(label='User Name:')
+    email_address = StringField(label='Email Adress:')
+    password1 = PasswordField(label='Password:')
+    password2 = PasswordField(label='Confirm password:')
+    submit= SubmitField(label='Create Account')
+```
+
+View
+
+```
+{{ form.csrf_token }}
+{{ form.username.label(class="fr-label")}}
+{{ form.username(class="fr-input", placeholder="User Name")}}
+```
+
+## P9: Flask Validations
+
+- CSRF :          {{ form.hidden_tag() }}
+- <https://wtforms.readthedocs.io/en/2.3.x/validators/>
+- loop through form.errors after failed validation
 ## Resource
 
 - <http://www.jimshapedcoding.com/courses/Flask%20Full%20Series>
@@ -143,3 +166,4 @@ HTML counterpart
 - <https://gouvfr.atlassian.net/wiki/spaces/DB/pages/193036295/COMPOSANTS>
 - <https://web.archive.org/web/20150113060057/http://effbot.org/zone/import-confusion.htm> :cyclic import dependancy
 - <https://flask.palletsprojects.com/en/2.0.x/cli/#environment-variables-from-dotenv> : dotenv
+- <https://flask-wtf.readthedocs.io/en/0.15.x/>

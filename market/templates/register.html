@@ -13,19 +13,20 @@ Register Page
         </div>
     </div>
 </div>
-<div class="fr-grid-row">
-    <div class="fr-col">
-        <h1 class="fr-mb-3 fr-display-md fr-text-center"  style="text-align: center;">
-            Please Create your Account
-        </h1>
-    </div>
-</div>
-<br>
-<div class="fr-grid-row">
-    <div class="fr-col">
-        <form method="POST" class="form-register">
+<form method="POST" class="form-register">
 
-            {{ form.csrf_token }}
+    {{ form.hidden_tag() }}
+    <div class="fr-grid-row">
+        <div class="fr-col">
+            <h1 class="fr-mb-3 fr-display-md fr-text-center" style="text-align: center;">
+                Please Create your Account
+            </h1>
+        </div>
+    </div>
+    <br>
+    <div class="fr-grid-row">
+        <div class="fr-col">
+
 
             {{ form.username.label(class="fr-label")}}
             {{ form.username(class="fr-input", placeholder="User Name")}}
@@ -40,7 +41,7 @@ Register Page
             {{ form.password2(class="fr-input", placeholder="Confirm password")}}
 
             {{ form.submit(class="fr-btn fr-btn--lg fr-fi-checkbox-circle-line fr-btn--icon-left fr-mt-1w")}}
-        </form>
+        </div>
     </div>
-</div>
+</form>
 {% endblock %}
