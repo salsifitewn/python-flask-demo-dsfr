@@ -56,7 +56,18 @@
       </div>
     </header>
     <div class="main">
-      <div class="fr-container">{% block content %} {% endblock %}</div>
+      <div class="fr-container">
+        <!-- https://docs.djangoproject.com/fr/3.2/ref/templates/builtins/#with -->
+        {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+           {% for category, message in messages %}
+           <div role="alert" class="fr-alert fr-alert--{{ category }} fr-mt-1w">
+            <p class="fr-alert__title">{{ message }}</p>
+            </div>
+            {% endfor %}
+        {% endif %}
+      {% endwith %}
+        {% block content %} {% endblock %}</div>
     </div>
     <!-- DSFR JavaScript -->
     <script src="{{ url_for('static', filename='assets/dsfr/dist/js/dsfr.nomodule.min.js') }}"></script>

@@ -158,6 +158,17 @@ View
 - CSRF :          {{ form.hidden_tag() }}
 - <https://wtforms.readthedocs.io/en/2.3.x/validators/>
 - loop through form.errors after failed validation
+
+## P10: Flash messages && custom validator
+
+<https://flask.palletsprojects.com/en/2.0.x/patterns/flashing/>
+>The flashing system basically makes it possible to record a message at the end of a request and access it next request and only next request
+
+- in layout so it can be reused
+- can add meta data (message categories)
+- data-dismiss , aria-label 
+- inline custom validator <https://wtforms.readthedocs.io/en/2.3.x/forms/#in-line-validators>
+  
 ## Resource
 
 - <http://www.jimshapedcoding.com/courses/Flask%20Full%20Series>
