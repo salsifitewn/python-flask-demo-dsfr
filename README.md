@@ -168,7 +168,17 @@ View
 - can add meta data (message categories)
 - data-dismiss , aria-label 
 - inline custom validator <https://wtforms.readthedocs.io/en/2.3.x/forms/#in-line-validators>
-  
+
+## P11: User Authentication Part 1
+
+context: at the moment passwords are not hashed. 
+
+- import Bcrypt <https://flask-bcrypt.readthedocs.io/en/latest/>
+- use getter and setter for model class (builtin decorator @property <https://docs.python.org/3.10/library/functions.html?highlight=property#property>,<https://www.programiz.com/python-programming/property> )
+  Usecase: prevent unnecessary functions declarations
+  Declare a variable as a property attribute. Optionnaly, add setter,delete and doc
+- login 
+-   
 ## Resource
 
 - <http://www.jimshapedcoding.com/courses/Flask%20Full%20Series>
@@ -178,3 +188,4 @@ View
 - <https://web.archive.org/web/20150113060057/http://effbot.org/zone/import-confusion.htm> :cyclic import dependancy
 - <https://flask.palletsprojects.com/en/2.0.x/cli/#environment-variables-from-dotenv> : dotenv
 - <https://flask-wtf.readthedocs.io/en/0.15.x/>
+- <https://www.programiz.com/python-programming/property>: Base Python Tutorial

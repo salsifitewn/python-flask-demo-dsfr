@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 
 {% block title %}
-Register Page
+Login Page
 {% endblock %}
 
 {% block content %}
@@ -19,7 +19,7 @@ Register Page
     <div class="fr-grid-row">
         <div class="fr-col">
             <h1 class="fr-mb-3 fr-display-md fr-text-center" style="text-align: center;">
-                Please Create your Account
+                Please login
             </h1>
         </div>
     </div>
@@ -31,18 +31,12 @@ Register Page
             {{ form.username.label(class="fr-label")}}
             {{ form.username(class="fr-input", placeholder="User Name")}}
 
-            {{ form.email_address.label(class="fr-label")}}
-            {{ form.email_address(class="fr-input", placeholder="Email Address")}}
-
-            {{ form.password1.label(class="fr-label")}}
-            {{ form.password1(class="fr-input", placeholder="Password")}}
-
-            {{ form.password2.label(class="fr-label")}}
-            {{ form.password2(class="fr-input", placeholder="Confirm password")}}
+            {{ form.password.label(class="fr-label")}}
+            {{ form.password(class="fr-input", placeholder="Password")}}
 
             <div class="fr-mb-3w">
-                <h6>Already have an account?</h6>
-                <a class="fr-btn fr-btn--sm fr-btn-secondary" href="{{ url_for('login_page') }}">Login</a>
+                <h6>Do not have an account?</h6>
+                <a class="fr-btn fr-btn--sm fr-btn-secondary" href="{{ url_for('register_page') }}">Register</a>
              </div>
             {{ form.submit(class="fr-btn fr-btn--lg fr-fi-checkbox-circle-line fr-btn--icon-left fr-mt-1w")}}
         </div>
