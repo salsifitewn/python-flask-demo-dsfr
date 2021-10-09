@@ -1,33 +1,47 @@
 {% extends 'base.html' %} {% block title %} Market Page{% endblock %} {% block content %}
-<h1>Market Page</h1>
-<div class="fr-table">
-  <table>
-    <caption>
-      Liste des items
-    </caption>
-    <thead>
-      <tr>
-        <th scope="col">ID</th>
-        <th scope="col">Name</th>
-        <th scope="col">Barcode</th>
-        <th scope="col">Price</th>
-        <th scope="col">Options</th>
-      </tr>
-    </thead>
-    <tbody>
-      {% for item in items%}
-      <tr>
-        <td>{{ item.id }}</td>
-        <td>{{ item.name }}</td>
-        <td>{{ item.barcode }}</td>
-        <td>{{ item.price }}$</td>
-        <td>
-          <button class="fr-btn fr-btn--secondary fr-mr-1w">More info</button
-          ><button class="fr-btn">Purchase this item</button>
-        </td>
-      </tr>
-      {% endfor %}
-    </tbody>
-  </table>
+
+<div class="fr-grid-row fr-mt-3w fr-ml-3w" style="margin-top:20px; margin-left:20px">
+  <div class="fr-col-8">
+    <h2>Available items on the Market</h2>
+    <p>Click on one of the items to start buying</p>
+    <div class="fr-table">
+      <table>
+        <caption>
+          Liste des items
+        </caption>
+        <thead>
+          <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Name</th>
+            <th scope="col">Barcode</th>
+            <th scope="col">Price</th>
+            <th scope="col">Options</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for item in items%}
+          {% include 'includes/items_modals.html' %}
+          <tr>
+            <td>{{ item.id }}</td>
+            <td>{{ item.name }}</td>
+            <td>{{ item.barcode }}</td>
+            <td>{{ item.price }}$</td>
+            <td>
+              <button class="fr-btn fr-btn--secondary fr-mr-1w" data-fr-opened="false" aria-controls="fr-modal-1">
+                More info
+            </button>
+              <button class="fr-btn" data-fr-opened="false" aria-controls="fr-modal-2" >Purchase this item</button>
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="fr-col-4">
+    <h2>Owned Items</h2>
+    <p>Click on sell item to put an item back on the Market</p>
+  </div>
+</div>
 </div>
 {% endblock %}

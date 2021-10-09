@@ -1,0 +1,74 @@
+<!-- More Info -->
+<dialog aria-labelledby="fr-modal-1-title" id="fr-modal-1" class="fr-modal" role="dialog">
+  <div class="fr-container fr-container--fluid fr-container-md">
+    <div class="fr-grid-row fr-grid-row--center">
+      <div class="fr-col-12 fr-col-md-8 fr-col-lg-6">
+        <div class="fr-modal__body">
+            <div class="fr-modal__header">
+              <button type="button"  class="fr-link--close fr-link" aria-controls="fr-modal-1">Fermer</button>
+            </div>
+            <div class="fr-modal__content">
+              <h1 id="fr-modal-1-title" class="fr-modal__title">
+                <!-- <span class="fr-fi-arrow-right-line fr-fi--lg"></span> -->
+                {{ item.name }}
+              </h1>
+              {{ item.description }}
+            </div>
+            <div class="fr-modal__footer">
+              <ul
+                class="fr-btns-group fr-btns-group--right fr-btns-group--inline-reverse fr-btns-group--inline-lg fr-btns-group--icon-left">
+                <li>
+                  <button type="button" class="fr-btn fr-fi-checkbox-line fr-btn--secondary" aria-controls="fr-modal-1">
+                    Close
+                  </button>
+                </li>
+              </ul>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</dialog>
+
+<!-- Purchase Confirm -->
+<dialog aria-labelledby="fr-modal-2-title" id="fr-modal-2" class="fr-modal" role="dialog">
+  <div class="fr-container fr-container--fluid fr-container-md">
+    <div class="fr-grid-row fr-grid-row--center">
+      <div class="fr-col-12 fr-col-md-8 fr-col-lg-6">
+        <div class="fr-modal__body">
+          <form method="POST">
+            {{ purchase_form.hidden_tag() }}
+            <div class="fr-modal__header">
+              <button type="button"  class="fr-link--close fr-link" aria-controls="fr-modal-2">Fermer</button>
+            </div>
+            <div class="fr-modal__content">
+              <h1 id="fr-modal-2-title" class="fr-modal__title">
+                <!-- <span class="fr-fi-arrow-right-line fr-fi--lg"></span> -->
+                Are you sure you want to buy {{ item.name }} for {{ item.price }}$ ?
+              </h1>
+              <h6 class="text-center">
+                By clicking Purchase, you will purchase this item.
+              </h6>
+              <br>
+              <input id="purchased_item" name="purchased_item" type="hidden" value="{{item.name}}">
+            </div>
+            <div class="fr-modal__footer">
+              <ul
+                class="fr-btns-group fr-btns-group--right fr-btns-group--inline-reverse fr-btns-group--inline-lg fr-btns-group--icon-left">
+                <li>
+                  {{ purchase_form.submit(class="fr-btn fr-fi-checkbox-line") }}
+
+                </li>
+                <li>
+                  <button type="button" class="fr-btn fr-fi-checkbox-line fr-btn--secondary" aria-controls="fr-modal-2">
+                    Close
+                  </button>
+                </li>
+              </ul>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</dialog>

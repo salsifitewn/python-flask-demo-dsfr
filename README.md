@@ -208,6 +208,20 @@ context: implemement user session management for identifying request
 
 - login flash message
 - `@login_required` route decorator
+
+## P14,p15 Item Purchasing Part 1
+
+<https://www.javatpoint.com/flask-request-object>
+`request` object
+
+| Attribute | Description |
+| --------- | ----------- |
+| Form      | It is the dictionary object which contains the key-value pair of form parameters and their values. |
+| args      |  It is parsed from the URL. It is the part of the URL which is specified in the URL after question mark (?). |
+| Cookies   |  It is the dictionary object containing cookie names and the values. It is saved at the client-side to track the user session. |
+| files   |  It contains the data related to the uploaded file.  |
+| method     |   It is the current request method (get or post).  |
+
 ## Resource
 
 - <http://www.jimshapedcoding.com/courses/Flask%20Full%20Series>
