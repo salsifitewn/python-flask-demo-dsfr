@@ -7,15 +7,15 @@ Adapted from <https://github.com/jimdevops19/FlaskSeries>
 
 ⭐️ Course Contents ⭐️
 
-- P1  (0:00:00) Introduction
-- P2  (0:20:37) Styling & Templates
-- P3  (0:41:37) Sending data to Templates
-- P4  (1:02:56) Template Inheritance
-- P5  (1:21:14) Models and Databases
-- P6  (1:51:13) Project Restructure
-- P7  (2:05:41) Model Relationships
-- P8  (2:25:37) Flask Forms
-- P9  (2:51:58) Flask Validations
+- P1 (0:00:00) Introduction
+- P2 (0:20:37) Styling & Templates
+- P3 (0:41:37) Sending data to Templates
+- P4 (1:02:56) Template Inheritance
+- P5 (1:21:14) Models and Databases
+- P6 (1:51:13) Project Restructure
+- P7 (2:05:41) Model Relationships
+- P8 (2:25:37) Flask Forms
+- P9 (2:51:58) Flask Validations
 - P10 (3:14:05) Flashes & Advanced Validations
 - P11 (3:41:04) User Authentication Part 1
 - P12 (3:59:56) User Authentication Part 2
@@ -27,7 +27,7 @@ Adapted from <https://github.com/jimdevops19/FlaskSeries>
 ## CLI
 
 ```bash
-# if local env 
+# if local env
 python3 -m venv venv
 source venv/bin/activate
 
@@ -93,17 +93,17 @@ item1.owner = User.query.filter_by(username='salsifite').first().id
 
 for item in Item.query.filter_by(price=500):
 ...     item.name
-... 
+...
 ```
 
 ## P6 : Models and Databases
 
->Package
->Pour créer votre propre package, commencez par créer dans le même dossier que votre programme - un dossier portant le nom de votre package. Dans notre exemple, nous le nommerons " utils ".
->Dans ce dossier, créons le fichier suivant: __init__.py , cela indique à python qu'il s'agit d'un package . Ce fichier peut être vide, seule sa présence est importante. 
+> Package
+> Pour créer votre propre package, commencez par créer dans le même dossier que votre programme - un dossier portant le nom de votre package. Dans notre exemple, nous le nommerons " utils ".
+> Dans ce dossier, créons le fichier suivant: **init**.py , cela indique à python qu'il s'agit d'un package . Ce fichier peut être vide, seule sa présence est importante.
 > <https://python.doctor/page-python-modules-package-module-cours-debutants-informatique-programmation>
 
-__init__.py
+**init**.py
 
 beware of cyclic dependancies. change import order at the end if needed
 
@@ -114,7 +114,6 @@ flask db migrate -m 'migration_name'
 flask db upgrade
 
 ## P8: Flask Forms
-
 
 ### generate csrf(Cross-site request forgery)
 
@@ -155,30 +154,55 @@ View
 
 ## P9: Flask Validations
 
-- CSRF :          {{ form.hidden_tag() }}
+- CSRF : {{ form.hidden_tag() }}
 - <https://wtforms.readthedocs.io/en/2.3.x/validators/>
 - loop through form.errors after failed validation
 
 ## P10: Flash messages && custom validator
 
 <https://flask.palletsprojects.com/en/2.0.x/patterns/flashing/>
->The flashing system basically makes it possible to record a message at the end of a request and access it next request and only next request
+
+> The flashing system basically makes it possible to record a message at the end of a request and access it next request and only next request
 
 - in layout so it can be reused
 - can add meta data (message categories)
-- data-dismiss , aria-label 
+- data-dismiss , aria-label
 - inline custom validator <https://wtforms.readthedocs.io/en/2.3.x/forms/#in-line-validators>
 
 ## P11: User Authentication Part 1
 
-context: at the moment passwords are not hashed. 
+context: at the moment passwords are not hashed.
 
 - import Bcrypt <https://flask-bcrypt.readthedocs.io/en/latest/>
 - use getter and setter for model class (builtin decorator @property <https://docs.python.org/3.10/library/functions.html?highlight=property#property>,<https://www.programiz.com/python-programming/property> )
   Usecase: prevent unnecessary functions declarations
   Declare a variable as a property attribute. Optionnaly, add setter,delete and doc
-- login 
--   
+- login
+
+## P12: flask-login
+
+context: implemement user session management for identifying request
+
+<https://flask-login.readthedocs.io/en/latest/>
+
+> - Store the active user’s ID in the session, and let you log them in and out easily.
+> - Let you restrict views to logged-in (or logged-out) users.
+> - Handle the normally-tricky “remember me” functionality.
+> - Help protect your users’ sessions from being stolen by cookie thieves.
+> - Possibly integrate with Flask-Principal or other authorization extensions later on.
+
+- User provider(UserMixin et user_loader)
+  
+  ```python
+  @login_manager.user_loader
+  def load_user(user_id):
+    return User.query.get(int(user_id))
+  ```
+
+  - `login_user(User)`
+  - Access user object `current_user`
+
+
 ## Resource
 
 - <http://www.jimshapedcoding.com/courses/Flask%20Full%20Series>
@@ -189,3 +213,4 @@ context: at the moment passwords are not hashed.
 - <https://flask.palletsprojects.com/en/2.0.x/cli/#environment-variables-from-dotenv> : dotenv
 - <https://flask-wtf.readthedocs.io/en/0.15.x/>
 - <https://www.programiz.com/python-programming/property>: Base Python Tutorial
+- <https://dev.to/sm0ke/flask-a-list-of-useful-how-to-s-42m7>
