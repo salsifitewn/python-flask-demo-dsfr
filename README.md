@@ -202,7 +202,12 @@ context: implemement user session management for identifying request
   - `login_user(User)`
   - Access user object `current_user`
 
+## P13
 
+<https://flask-login.readthedocs.io/en/latest/#customizing-the-login-process>
+
+- login flash message
+- `@login_required` route decorator
 ## Resource
 
 - <http://www.jimshapedcoding.com/courses/Flask%20Full%20Series>

@@ -1,3 +1,15 @@
-{% extends 'base.html' %} {% block title %} Home Page{% endblock %} {% block content %}
-<h1>Home Page</h1>
+{% extends 'base.html' %}
+{% block title %}
+    Welcome to Flask Market
+{% endblock %}
+{% block content %}
+    <div class="fr-row-grid hero fr-p-3v fr-p-md-5v fr-m-md-3v" style="position:relative;overflow:hidden;text-align:center">
+        <div class="fr-col-md-5 fr-p-lg-5v fr-mx-auto fr-my-5v">
+            <h1 class="fr-display-md font-weight-normal">Flask Market</h1>
+            <p class="fr-text--lead font-weight-normal">Start purchasing products by clicking the link below</p>
+            <a class="fr-btn fr-btn-primary" href="{{ url_for('market_page') }}">Get Started</a>
+        </div>
+        <div class="product-device box-shadow d-none d-md-block"></div>
+        <div class="product-device product-device-2 box-shadow d-none d-md-block"></div>
+    </div>
 {% endblock %}
